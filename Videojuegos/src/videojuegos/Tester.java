@@ -21,6 +21,15 @@ public class Tester {
     System.out.println(fecha);
     Videojuego videojuego = new Videojuego();
     System.out.println(videojuego);
+    
+    Videojuego [] videojuegos = new Videojuego[10];
+        for (int i = 0; i < videojuegos.length; i++) {
+            videojuegos[i] = new Videojuego();
+        }
+        for (int i = 0; i < videojuegos.length; i++) {
+            System.out.println(videojuegos[i]);
+        }
     }
+    
     
 }

@@ -10,18 +10,38 @@ package videojuegos;
  */
 
 public class Videojuego {
+    
     private String nombre;
     private String genero;
     private int edad;
     private Fecha fechaLanzamiento;
     private String empresa;
-    private boolean modoJuego; //online offline
+    private boolean modoJuego; //online=true offline=false
     private String plataforma;
     
+   public Videojuego(){
+   nombre = Utilidades.nombres[(int)(Math.random()*Utilidades.nombres.length)] ;
+   genero = "puzzle";
+   edad = Utilidades.edades[(int)(Math.random()*Utilidades.edades.length)];
+   //fechaLanzamiento= new Fecha(6,6,1984);
+   fechaLanzamiento = new Fecha("6/6/2002");
+   empresa = "SEGA";
+   modoJuego = false; //no hace falta
+   plataforma = "GameBoy";
    
-            
+   }
+    
+    //getter y setter        
     public String getNombre(){
         return nombre;
+    }
+    
+    /*public void setNombre(String nuevoNombre){
+        nombre = nuevoNombre;
+    }*/
+    
+    public void setNombre(String nombre){
+        this.nombre = nombre;
     }
     public String getGenero(){
         return genero;
@@ -32,6 +52,12 @@ public class Videojuego {
     public Fecha getFecha(){
         return fechaLanzamiento;
     }
+    /*public void setFecha(Fecha nuevaFecha){
+        fechaLanzamiento = nuevaFecha;
+    }*/
+    public void setFecha(Fecha fechaLanzamiento){
+        this.fechaLanzamiento = fechaLanzamiento;
+    }
     public boolean getModoJuego(){
         return modoJuego;
     }
@@ -40,6 +66,11 @@ public class Videojuego {
     }
     public String getPlataforma(){
         return plataforma;
+    }
+
+    @Override
+    public String toString() {
+        return "Videojuego{" + "nombre=" + nombre + ", genero=" + genero + ", edad=" + edad + ", fechaLanzamiento=" + fechaLanzamiento + ", empresa=" + empresa + ", modoJuego=" + modoJuego + ", plataforma=" + plataforma + '}';
     }
     
 }
