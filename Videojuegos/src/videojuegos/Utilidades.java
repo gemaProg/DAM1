@@ -10,6 +10,7 @@ package videojuegos;
  */
 public class Utilidades {
     public static final String nombres[] = {"Mario","Pokemon","LoL"};
-    public static final byte edades[] = {6,18,13};
+    public static final int edades[] = {6,18,13};
+    
     
 }
