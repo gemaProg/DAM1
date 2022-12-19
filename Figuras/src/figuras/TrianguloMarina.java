@@ -26,22 +26,35 @@ public class TrianguloMarina extends Figura {
         lado3 = lado;
     }
 
-    public TrianguloMarina(double lado2, double lado3, double dato) {
+    public TrianguloMarina(double dato, double lado2, double lado3) {
         super(dato);
         this.lado2 = lado2;
         this.lado3 = lado3;
     }
-
+    public String getTipo(){
+        String tipo = new String();
+        if (dato==lado2 && dato==lado3)
+            tipo = "Equilatero";
+        else if ((dato==lado2) || (dato==lado3) || (lado2==lado3))
+            tipo = "Isosceles";
+        else 
+            tipo = "Escaleno";
+        return tipo;
+    }
     @Override
     public double area() {
         double sm = perimetro() / 2;
-        double area = (double) Math.sqrt(sm * Math.pow((sm - dato), 3));
+        double area = (double) Math.sqrt(sm * (sm - dato)*(sm-lado2)*(sm-lado3));
         return area;
     }
 
     @Override
     public double perimetro() {
-        return dato * 3;
+        return dato + lado2+ lado3;
 
+    }
+    @Override
+    public String toString(){
+        return super.toString() + " dato2="+ lado2 +" dato3="+ lado3 + " " + getTipo();
     }
 }
