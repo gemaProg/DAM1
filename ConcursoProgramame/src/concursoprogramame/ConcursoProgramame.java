@@ -30,7 +30,7 @@ public class ConcursoProgramame {
         listaNombres.add("Ines");
         listaNombres.add("Gema");
         System.out.println(listaNombres.get(2));
-        System.out.println(Character.isDigit(65)); //48->0
+        System.out.println(Character.isDigit(65)); //48->0, 65->'A'
         
         char[] chars = listaNombres.get(0).toCharArray();
         boolean encontrado=false;
