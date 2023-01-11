@@ -26,6 +26,7 @@ public abstract class Animal {
         this.fecha = fecha;
     }
 
+    
     public int getId() {
         return id;
     }
