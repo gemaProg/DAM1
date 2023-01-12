@@ -25,18 +25,20 @@ public class Granja {
 
         }
     }
+
     public void listarAnimalesRentables() {
         int contadorOvejas = 0;
         int contadorGallinas = 0;
         for (int i = 0; i < animales.length; i++) {
-            if (animales[i] != null && animales[i] instanceof Gallina && animales[i].esRentable()){
+            if (animales[i] != null && animales[i] instanceof Gallina && animales[i].esRentable()) {
                 contadorGallinas++;
-            }else if (animales[i]!=null && animales[i].esRentable())
+            } else if (animales[i] != null && animales[i].esRentable()) {
                 contadorOvejas++;
+            }
         }
-        System.out.println("Hay "+ contadorOvejas + " ovejas rentables" +"y "+ contadorGallinas + "gallinas rentables");
+        System.out.println("Hay " + contadorOvejas + " ovejas rentables" + "y " + contadorGallinas + "gallinas rentables");
     }
-    
+
     public boolean darAltaAnimalPro(Animal animal) {
         boolean auxiliar = false;
         for (int i = 0; i < animales.length && !auxiliar; i++) {
@@ -92,16 +94,16 @@ public class Granja {
         String id = lector.nextLine();
         System.out.println("Introduce 1. Gallina, 2. Oveja");
         int tipo = lector.nextInt();
-        if (tipo ==1){
-             System.out.println("Introduce número huevos de media a la semana ");
-             int huevos = lector.nextInt();
-             nuevo = new Gallina(id, nombre, anyo, color, clasificacion, huevos);
-        }else if (tipo ==2){
-             System.out.println("Introduce metros de lana ");
-             double lana = lector.nextInt();
-             nuevo = new Oveja(id, nombre, anyo, color, clasificacion, lana);
+        if (tipo == 1) {
+            System.out.println("Introduce número huevos de media a la semana ");
+            int huevos = lector.nextInt();
+            nuevo = new Gallina(id, nombre, anyo, color, clasificacion, huevos);
+        } else if (tipo == 2) {
+            System.out.println("Introduce metros de lana ");
+            double lana = lector.nextInt();
+            nuevo = new Oveja(id, nombre, anyo, color, clasificacion, lana);
         }
-            
+
         return nuevo;
     }
 
@@ -118,28 +120,28 @@ public class Granja {
     }
 
     public boolean darBajaAnimal(String id) {
-        boolean eliminado =false;
-         for (int i = 0; i < animales.length && !eliminado; i++) {
+        boolean eliminado = false;
+        for (int i = 0; i < animales.length && !eliminado; i++) {
             if (animales[i].id.equalsIgnoreCase(id)) {
-                animales[i]=null;
+                animales[i] = null;
                 eliminado = true;
             }
         }
-         return eliminado;
+        return eliminado;
     }
-    
-    public boolean modificarAnyo(String id, int anyo){
-         boolean modificado =false;
-         for (int i = 0; i < animales.length && !modificado; i++) {
+
+    public boolean modificarAnyo(String id, int anyo) {
+        boolean modificado = false;
+        for (int i = 0; i < animales.length && !modificado; i++) {
             if (animales[i].id.equalsIgnoreCase(id)) {
                 animales[i].fechaNac = anyo;
                 modificado = true;
             }
         }
-         return modificado;
-    
+        return modificado;
+
     }
-    
+
     public int cuantosAnimales() {
         int contador = 0;
         for (int i = 0; i < animales.length; i++) {
@@ -148,6 +150,23 @@ public class Granja {
             }
         }
         return contador;
+    }
+
+    public int cuantasTortillas() {
+        return cuantasTortillas(5);
+    }
+    
+    public int cuantasTortillas(int numero) {
+        int cuantos = 0;
+        for (int i = 0; i < animales.length; i++) {
+            if (animales[i] != null && animales[i].getClass().getSimpleName().equals("Gallina")) {
+                Gallina aux = (Gallina) animales[i];
+                cuantos = cuantos + aux.huevosGallina; //+=
+                //cuantos += ((Gallina)animales[i]).huevosGallina;
+            }
+        }
+        //5 el número de huevos por tortilla.
+        return cuantos/numero;
     }
 
     @Override

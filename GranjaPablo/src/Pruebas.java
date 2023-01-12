@@ -9,6 +9,7 @@ public class Pruebas {
             miGranja.darAltaAnimal(auxiliar);
         miGranja.listarAnimales();
         miGranja.listarAnimalesRentables();
+        System.out.println("Tortillas:"+ miGranja.cuantasTortillas());
 
     }
 }
